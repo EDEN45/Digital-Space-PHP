@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vyacheslav
- * Date: 02.07.17
- * Time: 18:06
- */
 
 $arr = [];
 
