@@ -1,7 +1,18 @@
 <?php
 
-$array = [1, 1, 2, 3, 3, 3, 4];
+$array = [1, 1, 2, 3, 3, 3, 4, 1, 1, 1, 9, 7, 7];
 
-foreach (array_unique($array )as $value) {
-    echo $value . "   ";
+$elment = 0;
+
+foreach ($array as $value) {
+
+    if ($element === $value)
+    {
+        continue;
+    }
+    else
+    {
+        $element = $value;
+        echo $element . "   ";
+    }
 }
