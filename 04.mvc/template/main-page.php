@@ -9,14 +9,14 @@
 
 <div class="header">
 	<div class="container">
-		<a href="#">
+		<a href="/">
 			<div class="header-logo"></div>
 		</a>
 		<div class="header-menu inline-block">
 			<ul>
-				<li><a href="#">Задание 1</a></li>
-				<li><a href="#">Задание 2</a></li>
-				<li><a href="#">Задание 3</a></li>
+				<?php foreach ($menu as $key => $value): ?>
+				<li><a href="<?= $key?>"><?=$value[0]?></a></li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 	</div>
@@ -24,15 +24,18 @@
 
 <div role="main">
 	<div class="container">
-		<?php if ($page_not_found === 404): ?>
-		<div class="page-not-found">
-			404 page not found
-		</div>
-		<?php endif; ?>
+			<div class="content-block">
+				<h2>Главная страница</h2>
+				<p>Создать MVC приложение, содержащее следующие страницы:
+					<ul>
+						<li>Главная, содержит ссылки на другие разделы</li>
+						<li>Раздел 1 - генерирует случайный массив из 10 элементов и выводит максимальный и минимальный элемент</li>
+						<li>Раздел 2 - Выводит таблицу умножения</li>
+						<li>Раздел 3 (несколько ссылок) - Меню на главной, которое строится из массива и открывается с содержимым</li>
 
-		<div class="content-block">
-			<p>eeeegegegegegeggege</p>
-		</div>
+					</ul>
+				</p>
+			</div>
 	</div>
 </div>
 </body>

@@ -24,8 +24,27 @@
 
 <div role="main">
     <div class="container">
-        <div class="page-not-found">
-            404 page not found
+        <div class="content-block">
+            <h2><?= $menu[$level][0]?></h2>
+            <p><?= $menu[$level][1]?><br><br>
+               <?php if (!empty($array_task1)): ?>
+                    <b>Массив случайных элементов:</b><br><br>
+
+                        <?php for($j=0; $j < count($array_task1); $j++){ ?>
+                            <div class="box"><?php echo $array_task1[$j] ?></div>
+                        <?php }?>
+
+                        <br><br>
+                        <b>Минимальный элемент массива: </b> <?=min($array_task1)?><br>
+                        <b>Максимальный элемент массива: </b> <?=max($array_task1)?>
+
+                <?php elseif ($level === 'task2'): ?>
+                    <?php for($i = 1; $i <= $param; $i++){
+                            for($j = 1; $j <= $param; $j++) { ?>
+                                <div class="box"><?php echo $i * $j ?></div>
+                            <?php } ?> <br> <?php } ?>
+                <?php endif; ?>
+            </p>
         </div>
     </div>
 </div>
@@ -117,6 +136,17 @@
         font-size: 72px;
         text-align: center;
         text-transform: uppercase;
+    }
+
+    .box {
+        display: inline-block;
+        margin-top: -2px;
+        margin-right: -6px;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 2px solid;
     }
 
 </style>
