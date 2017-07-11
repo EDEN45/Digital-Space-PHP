@@ -1,7 +1,7 @@
 <?php
 
-Route::set('about-us', function () {
-    echo "about-us";
+Route::set('login', function () {
+    Login::CreateView();
 });
 
 ?>
