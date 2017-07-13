@@ -17,10 +17,10 @@ spl_autoload_register(function ($class_name) {
 
 });
 
-# отвечает за пути
+# отвечает за пути и при первом запуске идет построение путей
 require_once ('Routes/Routes.php');
 
-
+# точка входа приложения
 $main = new Main();
 $main->run();
 

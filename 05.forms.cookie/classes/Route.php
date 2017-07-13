@@ -28,6 +28,7 @@ class Route {
     }
   }
 
+  # поделиться содержимым массива путей
   public static function getValidRoutes(){
     return self::$validRoutes;
   }

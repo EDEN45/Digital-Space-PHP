@@ -1,7 +1,7 @@
 <?php
 
 Route::set('/', function () {
-  View::make('Root');
+  View::make('Index');
 });
 
 Route::set('/login', function () {

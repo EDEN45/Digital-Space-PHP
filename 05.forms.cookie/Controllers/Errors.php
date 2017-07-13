@@ -1,10 +1,10 @@
 <?php
 
-class ErrorPage {
+class Errors {
   public static function View() {
 
     $header_error = '404 Page not found';
-    require 'Views/ErrorPageView.php';
+    require 'Views/ErrorsView.php';
   }
 }
 
