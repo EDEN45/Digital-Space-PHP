@@ -1,7 +1,7 @@
 <?php
 
 class DB {
-  private $menu_array = [
+  private static $menu_array = [
 
         '/login' => ['Вход','Войдите чтобы просмотреть баланс'],
         '/balance' => ['Баланс','Чтобы просмотреть баланс необходимо пройти авторизацию'],
@@ -9,8 +9,8 @@ class DB {
   ];
 
 
-  public function getArray() {
-    return $menu_array;
+  public static function getArray() {
+    return self::$menu_array;
   }
 }
 
