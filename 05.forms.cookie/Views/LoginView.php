@@ -26,7 +26,15 @@
 	<div class="container">
 			<div class="content-block">
 				<h2>Авторизация</h2>
-				<p>Чтобы просмотреть баланс необходимо пройти авторизацию</p>
+				<p>
+          <form action="/login" method="POST">
+            <label for="username">Введите имя:</label>
+            <input type="text" name="username" id="username" required><br>
+            <label for="password">Введите пароль:</label>
+            <input type="text" name="password" id="password" required>
+            <input type="submit" value="Готово">
+          </form>
+        </p>
 			</div>
 	</div>
 </div>
