@@ -9,9 +9,9 @@ class DB {
   ];
 
   private static $user_array = [
-    'Андрей' => ['1234',453],
-    'Вася' => ['2244', 23],
-    'Алина' => ['991', 1]
+     ['Андрей','1234',453],
+     ['Вася','2244', 23],
+     ['Алина','991', 1]
   ];
 
 
@@ -19,13 +19,22 @@ class DB {
     return self::$menu_array;
   }
 
-  public static function getUserBalanc($login, $password) {
+  public static function getPass($name) {
     foreach (self::$user_array as $key => $value) {
-      if ($login === $key && $password === $value[0]){
-        return $user_array[key][1];
+      if ($name === $value[0]){
+        return $user_array[key][2];
       }
     }
   }
+
+  public static function getBalance($name) {
+    foreach (self::$user_array as $key => $value) {
+      if ($name === $value[0]){
+        return $user_array[key][3];
+      }
+    }
+  }
+
 }
 
 ?>
