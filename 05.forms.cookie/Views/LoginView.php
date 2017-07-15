@@ -27,15 +27,17 @@
 			<div class="content-block">
 				<h2>Авторизация</h2>
 				<p>
-          <?php if(!Access::Session()): ?>
-          <form action="/login" method="POST">
+          <?php $name = Access::Session(); if(!$name): ?>
+          <form action="/" method="POST">
             <label for="username">Введите имя:</label>
             <input type="text" name="username" id="username" required><br>
             <label for="password">Введите пароль:</label>
             <input type="text" name="password" id="password" required>
             <input type="submit" value="Готово">
           </form>
-        <?php else: Login::goMain(); ?>
+        <?php else: echo 'Здраствуйте, <b>'.$name. '</b>!
+													<br>Вы авторизованы
+													<br><a href="/out">Выйти</a>'; ?>
         <?php endif; ?>
 
         </p>

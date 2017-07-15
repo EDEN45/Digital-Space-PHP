@@ -26,7 +26,13 @@
 	<div class="container">
 			<div class="content-block">
 				<h2><?= Index::getHeader()?></h2>
-				<p>Чтобы просмотреть баланс необходимо пройти авторизацию</p>
+				<p>
+					<?php $name = Access::Session(); if ($name): ?>
+						<?='Здраствуйте: '.$name.'<br><a href="/balance">Посмотреть баланс</a>'?>
+					<?php else:?>
+						<?='Чтобы просмотреть баланс необходимо пройти авторизацию'?>
+					<?php endif; ?>
+				</p>
 			</div>
 	</div>
 </div>
