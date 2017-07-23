@@ -5,6 +5,8 @@ Route::set('/', function () {
 });
 
 Route::set('/login', function () {
+  # старт сессии
+  session_start();
   View::make('Login');
 });
 
