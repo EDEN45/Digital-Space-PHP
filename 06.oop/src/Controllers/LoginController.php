@@ -4,20 +4,15 @@ namespace dumb_bird\Controllers;
 
 use dumb_bird\Classes\Access;
 
-class GameController {
+class LoginController {
   public static function run() {
-
     $name = Access::Session();
 
     if ($name) {
-      require 'src/Views/GameView.php';
+      header('Location: /game');
     }
     else {
-      header('Location: /login');
+      require 'src/Views/LoginView.php';
     }
-
-
-
-
   }
 }

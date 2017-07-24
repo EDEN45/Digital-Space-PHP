@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 <html manifest="static/game/offline.appcache">
+<!--html manifest="static/game/offline.appcache" -->
 <head>
     <meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>dumb bird</title>
 
+  <link rel="stylesheet" href="static/css/main.css">
 	<!-- Standardised web app manifest -->
 	<link rel="manifest" href="static/game/appmanifest.json" />
 
@@ -26,11 +28,7 @@
 			margin: 0;
 		}
 		html, body {
-			background: #000;
-			color: #fff;
-			overflow: hidden;
-			touch-action: none;
-			-ms-touch-action: none;
+
 		}
 		canvas {
 			touch-action-delay: none;
@@ -43,36 +41,48 @@
 </head>
 
 <body>
-	<div id="fb-root"></div>
+  <div class="header-game">
+      <div class="container">
+          <a href="/">Главная</a>
+          <a href="/out">Выход</a>
+      </div>
+  </div>
 
-	<script>
-	// Issue a warning if trying to preview an exported project on disk.
-	(function(){
-		// Check for running exported on file protocol
-		if (window.location.protocol.substr(0, 4) === "file")
-		{
-			alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
-		}
-	})();
-	</script>
+  <div id="fb-root"></div>
+  <script>
+  // Issue a warning if trying to preview an exported project on disk.
+  (function(){
+    // Check for running exported on file protocol
+    if (window.location.protocol.substr(0, 4) === "file")
+    {
+      alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
+    }
+  })();
+  </script>
+  <!-- The canvas must be inside a div called c2canvasdiv -->
+  <div id="c2canvasdiv">
 
-	<!-- The canvas must be inside a div called c2canvasdiv -->
-	<div id="c2canvasdiv">
+    <!-- The canvas the project will render to.  If you change its ID, don't forget to change the
+    ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
+    <canvas id="c2canvas" width="640" height="480">
+      <!-- This text is displayed if the visitor's browser does not support HTML5.
+      You can change it, but it is a good idea to link to a description of a browser
+      and provide some links to download some popular HTML5-compatible browsers. -->
+      <h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
+      <br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
+      <a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
+      <a href="http://www.google.com/chrome/">Google Chrome</a><br/>
+      <a href="http://www.apple.com/safari/download/">Apple Safari</a></h1>
+    </canvas>
 
-		<!-- The canvas the project will render to.  If you change its ID, don't forget to change the
-		ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
-		<canvas id="c2canvas" width="640" height="480">
-			<!-- This text is displayed if the visitor's browser does not support HTML5.
-			You can change it, but it is a good idea to link to a description of a browser
-			and provide some links to download some popular HTML5-compatible browsers. -->
-			<h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
-			<br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
-			<a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
-			<a href="http://www.google.com/chrome/">Google Chrome</a><br/>
-			<a href="http://www.apple.com/safari/download/">Apple Safari</a></h1>
-		</canvas>
+  </div>
 
-	</div>
+
+
+
+
+
+
 
 	<!-- Pages load faster with scripts at the bottom -->
 
@@ -113,6 +123,7 @@
 
 		// Runtime calls this global method when ready to start caching (i.e. after startup).
 		// This registers the service worker which caches resources for offline support.
+
 		window.C2_RegisterSW = function C2_RegisterSW()
 		{
 			if (!navigator.serviceWorker)
@@ -131,6 +142,8 @@
 				OnRegisterSWError(e);
 			}
 		};
+
+
     </script>
 </body>
 </html>

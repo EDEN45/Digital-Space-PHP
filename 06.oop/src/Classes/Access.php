@@ -6,10 +6,13 @@
 
 namespace dumb_bird\Classes;
 
+use dumb_bird\Classes\DB;
+
 class Access
 {
   public static function Session() {
 
+    session_start();
     $name = $_POST['username'] ?? $_SESSION['username'] ?? null;
     $password = $_POST['password'] ?? $_SESSION['password'] ?? null;
     if (empty($name) && empty($password)) {
@@ -25,6 +28,7 @@ class Access
   }
 
   public static function SessionExit() {
+    session_start();
     unset($_SESSION['username']);
     unset($_SESSION['password']);
   }
