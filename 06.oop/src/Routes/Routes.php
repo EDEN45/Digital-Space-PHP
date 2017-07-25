@@ -35,6 +35,11 @@ class Routes {
     Route::set('/getr', function () {
       GetRecordes::run();
     });
+
+    # для ajax запроса данных
+    Route::set('/setr', function () {
+      SetRecordes::run();
+    });
   }
 
 # вход в программу

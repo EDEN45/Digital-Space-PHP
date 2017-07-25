@@ -105,22 +105,36 @@
 			// Create new runtime using the c2canvas
 			cr_createRuntime("c2canvas");
 
+      if (serverRecrodes === 0) {
+        $.ajax ({
+           url: "/getr",
+           //data: ({max:0}),
+           dataType: "html",
+           success: function(data) {
+             serverRecrodes = data;
+             localforage.setItem('max', data, function(){alert(data);});
+           }
+        });
+      }
 
-      $.ajax ({
-         url: "/getr",
-         //data: ({max:0}),
-         dataType: "html",
-         success: function(data) {
-           serverRecrodes = data;
-           localforage.setItem('max', data, function(){alert(data);});
-         }
-      });
 
 
       setInterval(function(){
-        var i = 0;
-     console.log(i++);
-   }, 1000);
+        localforage.getItem('max', function(err, readValue) {
+            if (serverRecrodes < readValue) {
+              serverRecrodes = readValue;
+              $.ajax ({
+                 url: "/setr",
+                 type: "POST",
+                 data: ({max:serverRecrodes}),
+                 dataType: "html",
+                 success: function() {
+                   alert("Все ОК");
+                 }
+              });
+            }
+        });
+      }, 1000);
 
 
 
