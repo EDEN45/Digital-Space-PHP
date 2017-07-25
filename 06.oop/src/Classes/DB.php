@@ -10,7 +10,7 @@ class DB {
      ['Вася','2244', '23'],
      ['Алина','991', '89'],
      ['Игорь','9', '1'],
-     ['Слава','1','200']
+     ['Слава','1','1000']
   ];
 
   public static function getRecords() {
@@ -30,7 +30,7 @@ class DB {
     }
   }
 
-  public static function getBalance($name) {
+  public static function getRecordsByName($name) {
     foreach (self::$user_array as $key => $value) {
       if ($name === $value[0]){
         return $value[2];

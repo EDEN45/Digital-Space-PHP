@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="static/css/main.css">
 	<!-- Standardised web app manifest -->
 	<link rel="manifest" href="static/game/appmanifest.json" />
+  <script src="static/game/localforage.js"></script>
 
 	<!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
@@ -99,9 +100,33 @@
 		// Start the Construct 2 project running on window load.
 		jQuery(document).ready(function ()
 		{
+      var i = 0;
+      var serverRecrodes = 0;
 			// Create new runtime using the c2canvas
 			cr_createRuntime("c2canvas");
+
+
+      $.ajax ({
+         url: "/getr",
+         //data: ({max:0}),
+         dataType: "html",
+         success: function(data) {
+           serverRecrodes = data;
+           localforage.setItem('max', data, function(){alert(data);});
+         }
+      });
+
+
+      setInterval(function(){
+        var i = 0;
+     console.log(i++);
+   }, 1000);
+
+
+
 		});
+
+
 
 		// Pause and resume on page becoming visible/invisible
 		function onVisibilityChanged() {
