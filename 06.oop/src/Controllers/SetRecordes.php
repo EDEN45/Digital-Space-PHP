@@ -13,6 +13,7 @@ class GetRecordes {
       $max = $_POST['max']??null;
       if (!empty($max)) {
         DB::setRecordes($name, $max);
+        print_r(DB::getRecordsByName($name));
       }
 
     }

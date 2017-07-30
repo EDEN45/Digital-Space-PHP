@@ -46,7 +46,7 @@ class Routes {
   public function run () {
 
     # регистрация путей
-    Route::registrRoute(['/', '/login', '/game', '/out', '/getr']);
+    Route::registrRoute(['/', '/login', '/game', '/out', '/getr', '/setr']);
 
     # проверяем пути от регистрации, если левый адрес, показываем 404
     if (Route::isRouteValid()) {
