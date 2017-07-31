@@ -39,7 +39,6 @@ class Routes {
 
     # для ajax запроса данных
     Route::set('/setr', function () {
-       echo "полет нормальный";
       SetRecordes::run();
     });
   }

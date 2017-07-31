@@ -25,7 +25,7 @@ class DB {
   public static function setRecords($name, $recordes) {
     foreach (self::$user_array as $key => $value) {
       if ($name === $value[0]){
-        self::$user_array[key][2] = $recordes;
+        self::$user_array[$key][2] = $recordes;
       }
     }
   }

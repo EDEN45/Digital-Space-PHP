@@ -6,6 +6,7 @@ use dumb_bird\Classes\Access;
 
 class LoginController {
   public static function run() {
+    session_start();
     $name = Access::Session();
 
     if ($name) {

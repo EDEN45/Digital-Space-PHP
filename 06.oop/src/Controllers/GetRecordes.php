@@ -7,6 +7,7 @@ use dumb_bird\Classes\DB;
 
 class GetRecordes {
   public static function run() {
+    session_start();
     $name = Access::Session();
 
     if ($name) {
