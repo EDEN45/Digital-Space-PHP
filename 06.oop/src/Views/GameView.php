@@ -112,7 +112,7 @@
            dataType: "html",
            success: function(data) {
              serverRecrodes = data;
-             localforage.setItem('max', data, function(){/*alert(data */);});
+             localforage.setItem('max', data, function(){/*alert(data );*/});
            }
         });
       }

@@ -8,6 +8,7 @@ use dumb_bird\Controllers\LoginController;
 use dumb_bird\Controllers\OutController;
 use dumb_bird\Controllers\GameController;
 use dumb_bird\Controllers\GetRecordes;
+use dumb_bird\Controllers\SetRecordes;
 use dumb_bird\Controllers\Page404Controller;
 
 class Routes {
@@ -38,6 +39,7 @@ class Routes {
 
     # для ajax запроса данных
     Route::set('/setr', function () {
+       echo "полет нормальный";
       SetRecordes::run();
     });
   }
